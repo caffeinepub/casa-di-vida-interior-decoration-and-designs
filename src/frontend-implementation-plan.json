@@ -1,0 +1,45 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Fix portfolio gallery images and reorganize into categorized sections",
+  "requirements": [
+    {
+      "id": "REQ-10",
+      "summary": "Replace portfolio gallery with four separate tab categories (Home, Commercial, Office, Hotels) displaying categorized project images with dialog-based lightbox interface",
+      "acceptanceCriteria": [
+        "Portfolio gallery displays four tabs labeled Home, Commercial, Office, and Hotels",
+        "Clicking a tab switches the displayed image grid to that category",
+        "Each category displays its own distinct set of interior design images",
+        "Images open in a dialog lightbox when clicked",
+        "Navigation between tabs maintains the same UI pattern as existing gallery"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PortfolioGallery.tsx",
+          "operation": "modify",
+          "description": "Replace the existing three-tab structure (living rooms, bedrooms, kitchens) with four new tabs: Home, Commercial, Office, and Hotels. Update the tab state management and ensure each tab displays its own category of images. Maintain the existing dialog-based lightbox pattern for viewing images with titles and descriptions. Keep the established luxury design aesthetic with warm earth tones and gold accents from the existing component."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Render 120 generated portfolio images (30 per category) from frontend/public/assets/generated directory with titles and detailed descriptions in lightbox",
+      "acceptanceCriteria": [
+        "Home category displays 30 residential interior design images",
+        "Commercial category displays 30 commercial space interior images",
+        "Office category displays 30 office interior design images",
+        "Hotels category displays 30 hotel interior design images",
+        "Each image displays a title in the lightbox dialog",
+        "Each image displays a detailed description in the lightbox dialog",
+        "All images load from frontend/public/assets/generated directory"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PortfolioGallery.tsx",
+          "operation": "modify",
+          "description": "Add image data arrays for all four categories with 30 images each. For Home category, use images: frontend/public/assets/generated/home-living-01.dim_800x600.png, frontend/public/assets/generated/home-bedroom-01.dim_800x600.png, frontend/public/assets/generated/home-dining-01.dim_800x600.png, frontend/public/assets/generated/home-kitchen-01.dim_800x600.png, frontend/public/assets/generated/home-reading-01.dim_800x600.png, frontend/public/assets/generated/home-bathroom-01.dim_800x600.png, frontend/public/assets/generated/home-nursery-01.dim_800x600.png, frontend/public/assets/generated/home-office-01.dim_800x600.png, frontend/public/assets/generated/home-kitchen-02.dim_800x600.png, frontend/public/assets/generated/home-bedroom-02.dim_800x600.png, frontend/public/assets/generated/home-living-02.dim_800x600.png, frontend/public/assets/generated/home-bedroom-03.dim_800x600.png, frontend/public/assets/generated/home-living-03.dim_800x600.png, frontend/public/assets/generated/home-dining-02.dim_800x600.png, frontend/public/assets/generated/home-bathroom-02.dim_800x600.png, frontend/public/assets/generated/home-living-04.dim_800x600.png, frontend/public/assets/generated/home-closet-01.dim_800x600.png, frontend/public/assets/generated/home-kitchen-03.dim_800x600.png, frontend/public/assets/generated/home-bedroom-04.dim_800x600.png, frontend/public/assets/generated/home-family-01.dim_800x600.png, frontend/public/assets/generated/home-sitting-01.dim_800x600.png, frontend/public/assets/generated/home-living-05.dim_800x600.png, frontend/public/assets/generated/home-bedroom-05.dim_800x600.png, frontend/public/assets/generated/home-kitchen-04.dim_800x600.png, frontend/public/assets/generated/home-meditation-01.dim_800x600.png, frontend/public/assets/generated/home-bedroom-06.dim_800x600.png, frontend/public/assets/generated/home-living-06.dim_800x600.png, frontend/public/assets/generated/home-bathroom-03.dim_800x600.png, frontend/public/assets/generated/home-living-07.dim_800x600.png, frontend/public/assets/generated/home-bedroom-07.dim_800x600.png. For Commercial category, use all 30 commercial-*.dim_800x600.png images. For Office category, use all 30 office-*.dim_800x600.png images. For Hotels category, use all 30 hotel-*.dim_800x600.png images. Each image object must include title and detailed description properties matching the image content. Reference images using /assets/generated/ path prefix in the src attributes."
+        }
+      ]
+    }
+  ]
+}

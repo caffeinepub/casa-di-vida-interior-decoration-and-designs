@@ -1,0 +1,43 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-replace-the-portfolio-gallery-component-to-display-four-separate-tab-categories-home-commercial-office-and-hotels-each-category-should-be-selectable-via-tabs-and-display-its-own-set-of-project-images-with-titles-and-descriptions-in-a-dialog-based-lightbox-interface",
+      "featureTitle": "Replace the portfolio gallery component to display four separate tab categories: Home, Commercial, Office, and Hotels. Each category should be selectable via tabs and display its own set of project images with titles and descriptions in a dialog-based lightbox interface",
+      "files": [
+        "frontend/src/components/PortfolioGallery.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-render-all-generated-portfolio-images-from-frontend-public-assets-generated-directory-display-30-images-per-category-home-commercial-office-hotels-for-a-total-of-120-portfolio-images-each-image-must-display-with-its-title-and-detailed-description-when-viewed-in-the-lightbox",
+      "featureTitle": "Render all generated portfolio images from frontend/public/assets/generated directory. Display 30 images per category (Home, Commercial, Office, Hotels) for a total of 120 portfolio images. Each image must display with its title and detailed description when viewed in the lightbox",
+      "files": [
+        "frontend/src/components/PortfolioGallery.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
