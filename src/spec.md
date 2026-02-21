@@ -1,12 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Reorganize portfolio gallery into four categorized tabs (Home, Commercial, Office, Hotels) with 30 images per category, each displaying titles and detailed descriptions in a lightbox dialog.
+**Goal:** Fix broken portfolio image paths so all 120 images load correctly across all 4 categories.
 
 **Planned changes:**
-- Replace portfolio gallery component with tab-based navigation for Home, Commercial, Office, and Hotels categories
-- Display 30 images per category (120 total portfolio images) from frontend/public/assets/generated directory
-- Add titles and detailed descriptions for each image in the lightbox dialog
-- Maintain existing dialog-based lightbox pattern and luxury design aesthetic
+- Update PortfolioGallery component to use correct public asset paths (/assets/generated/) instead of relative imports
+- Verify and correct image filenames to match exactly with generated assets in frontend/public/assets/generated
+- Ensure all 120 images (30 per category: Home, Commercial, Office, Hotels) reference valid files
 
-**User-visible outcome:** Users can browse interior design portfolio organized by project type (Home, Commercial, Office, Hotels), view 30 images per category, and see detailed titles and descriptions when clicking on any image.
+**User-visible outcome:** All portfolio images display properly without broken image icons across Home, Commercial, Office, and Hotels categories. Images open in lightbox when clicked.

@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-replace-the-portfolio-gallery-component-to-display-four-separate-tab-categories-home-commercial-office-and-hotels-each-category-should-be-selectable-via-tabs-and-display-its-own-set-of-project-images-with-titles-and-descriptions-in-a-dialog-based-lightbox-interface",
-      "featureTitle": "Replace the portfolio gallery component to display four separate tab categories: Home, Commercial, Office, and Hotels. Each category should be selectable via tabs and display its own set of project images with titles and descriptions in a dialog-based lightbox interface",
+      "featureId": "feature-fix-the-portfoliogallery-component-to-correctly-reference-portfolio-images-from-the-frontend-public-assets-generated-directory-ensuring-all-120-images-30-per-category-home-commercial-office-hotels-display-properly-without-broken-image-icons",
+      "featureTitle": "Fix the PortfolioGallery component to correctly reference portfolio images from the frontend/public/assets/generated directory, ensuring all 120 images (30 per category: Home, Commercial, Office, Hotels) display properly without broken image icons",
       "files": [
         "frontend/src/components/PortfolioGallery.tsx"
       ],
@@ -16,13 +16,13 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-10"
+        "REQ-12"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-render-all-generated-portfolio-images-from-frontend-public-assets-generated-directory-display-30-images-per-category-home-commercial-office-hotels-for-a-total-of-120-portfolio-images-each-image-must-display-with-its-title-and-detailed-description-when-viewed-in-the-lightbox",
-      "featureTitle": "Render all generated portfolio images from frontend/public/assets/generated directory. Display 30 images per category (Home, Commercial, Office, Hotels) for a total of 120 portfolio images. Each image must display with its title and detailed description when viewed in the lightbox",
+      "featureId": "feature-verify-that-the-portfolio-image-filenames-in-the-component-match-the-exact-generated-filenames-in-frontend-public-assets-generated-using-proper-public-asset-paths-e-g-assets-generated-filename-png-instead-of-relative-imports",
+      "featureTitle": "Verify that the portfolio image filenames in the component match the exact generated filenames in frontend/public/assets/generated, using proper public asset paths (e.g., /assets/generated/filename.png) instead of relative imports",
       "files": [
         "frontend/src/components/PortfolioGallery.tsx"
       ],
@@ -35,7 +35,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-11"
+        "REQ-13"
       ],
       "confidence": "high"
     }
