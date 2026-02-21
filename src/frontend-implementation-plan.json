@@ -1,58 +1,39 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Fix broken portfolio images by generating new images and updating component references",
+  "title": "Fix portfolio gallery image loading and implement grid layout",
   "requirements": [
     {
-      "id": "REQ-15",
-      "summary": "Fix PortfolioGallery component to correctly reference all 120 portfolio images from frontend/public/assets/generated directory using proper public asset paths",
+      "id": "REQ-18",
+      "summary": "Update the PortfolioGallery component to use a responsive grid layout for displaying portfolio images that adapts to different screen sizes",
       "acceptanceCriteria": [
-        "All portfolio images use correct public asset paths (e.g., /assets/generated/filename.png)",
-        "No broken image icons appear in any portfolio category",
-        "Image paths match the exact generated filenames in frontend/public/assets/generated",
-        "All 120 images (30 Home, 30 Commercial, 30 Office, 30 Hotels) render successfully"
+        "Portfolio images display in a responsive grid layout",
+        "Grid adapts appropriately across mobile, tablet, and desktop viewports",
+        "Images maintain consistent spacing and alignment within the grid",
+        "Grid layout is applied to all four categories (Home, Commercial, Office, Hotels)"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/PortfolioGallery.tsx",
           "operation": "modify",
-          "description": "Update the portfolio image data arrays to use public asset paths (/assets/generated/) instead of relative imports. Replace all image references with the correct public asset paths for all 120 generated images: home-1.dim_800x600.png through home-30.dim_800x600.png, commercial-1.dim_800x600.png through commercial-30.dim_800x600.png, office-1.dim_800x600.png through office-30.dim_800x600.png, and hotels-1.dim_800x600.png through hotels-30.dim_800x600.png. Ensure the image src attributes use the format /assets/generated/filename.png to properly reference the static assets in the public directory."
+          "description": "Replace the current image display layout with a responsive CSS grid. Implement a grid that displays 1 column on mobile (< 640px), 2-3 columns on tablet (640px-1024px), and 3-4 columns on desktop (>= 1024px). Use Tailwind grid utilities (grid, grid-cols-1, sm:grid-cols-2, md:grid-cols-3, lg:grid-cols-4) with consistent gap spacing (gap-4 or gap-6). Apply the grid layout to the image container within each tab's content area, ensuring all four categories (home, office, commercial, outdoor) render images in the same responsive grid structure. Maintain the existing click handlers for opening the lightbox dialog."
         }
       ]
     },
     {
-      "id": "REQ-16",
-      "summary": "Ensure portfolio image filenames match exact generated filenames using proper public asset paths without import statements",
+      "id": "REQ-19",
+      "summary": "Fix broken image icons in the PortfolioGallery component by correcting image path references to use proper public asset paths from /assets/generated/",
       "acceptanceCriteria": [
-        "Component uses /assets/generated/ prefix for all image paths",
-        "Filenames follow the pattern: home-1.png through home-30.png, commercial-1.png through commercial-30.png, office-1.png through office-30.png, hotels-1.png through hotels-30.png",
-        "No import statements are used for portfolio images",
-        "All image references are string paths to public assets"
+        "All 120 portfolio images display without broken image icons",
+        "Image paths correctly reference /assets/generated/ directory using public asset paths",
+        "Each category (Home, Commercial, Office, Hotels) displays all 30 of its images successfully",
+        "Images load properly when switching between tabs"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/PortfolioGallery.tsx",
           "operation": "modify",
-          "description": "Remove any import statements for portfolio images and convert all image references to string literals using the /assets/generated/ prefix. Verify that filenames exactly match the generated files in frontend/public/assets/generated: home-1.dim_800x600.png through home-30.dim_800x600.png (not home-1.png), commercial-1.dim_800x600.png through commercial-30.dim_800x600.png, office-1.dim_800x600.png through office-30.dim_800x600.png, and hotels-1.dim_800x600.png through hotels-30.dim_800x600.png. All image paths must be string literals in the format /assets/generated/category-number.dim_800x600.png."
-        }
-      ]
-    },
-    {
-      "id": "REQ-17",
-      "summary": "Populate all 120 portfolio images with category-appropriate titles and descriptions across Home, Commercial, Office, and Hotels categories",
-      "acceptanceCriteria": [
-        "30 Home category images with residential-appropriate titles and descriptions",
-        "30 Commercial category images with retail/restaurant/showroom titles and descriptions",
-        "30 Office category images with corporate workspace titles and descriptions",
-        "30 Hotels category images with luxury hospitality titles and descriptions",
-        "Each image entry includes a unique, descriptive title",
-        "Each image entry includes a detailed description appropriate to its category theme"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/PortfolioGallery.tsx",
-          "operation": "modify",
-          "description": "Expand the portfolio data structure to include all 120 images with complete metadata. For Home category: add 30 entries referencing frontend/public/assets/generated/home-1.dim_800x600.png through home-30.dim_800x600.png with titles like 'Luxurious Residential Living Room', 'Contemporary Bedroom Suite', 'Modern Kitchen Design', etc. For Commercial category: add 30 entries referencing frontend/public/assets/generated/commercial-1.dim_800x600.png through commercial-30.dim_800x600.png with titles for boutiques, restaurants, showrooms. For Office category: add 30 entries referencing frontend/public/assets/generated/office-1.dim_800x600.png through office-30.dim_800x600.png with corporate workspace titles. For Hotels category: add 30 entries referencing frontend/public/assets/generated/hotels-1.dim_800x600.png through hotels-30.dim_800x600.png with luxury hospitality titles. Each entry must include a descriptive title and detailed description matching the image generation prompts from the BuildRequest."
+          "description": "Update all image src attributes to use the correct public asset path format: /assets/generated/{category}-{number}.dim_800x600.png. For the Home category, use paths like /assets/generated/home-1.dim_800x600.png through /assets/generated/home-15.dim_800x600.png (15 images available based on assets list). For Commercial category, generate paths for commercial-1 through commercial-30. For Office category, generate paths for office-1 through office-30. For Hotels category, generate paths for hotels-1 through hotels-30. Ensure the image path generation logic correctly maps category names to their corresponding filename prefixes and includes the .dim_800x600.png dimension suffix. Verify that the thumbnail images in the grid and the full-size images in the lightbox dialog both reference valid asset paths. Note: The assets list shows 15 home images are actually available; adjust the Home category to display only available images or update logic to handle missing images gracefully across all categories."
         }
       ]
     }

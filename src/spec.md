@@ -1,12 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Fix broken portfolio images by generating 120 new portfolio images and updating the PortfolioGallery component to correctly reference them.
+**Goal:** Fix portfolio gallery image loading and implement responsive grid layout.
 
 **Planned changes:**
-- Generate 120 new portfolio images (30 Home, 30 Commercial, 30 Office, 30 Hotels) in frontend/public/assets/generated directory
-- Update PortfolioGallery component to use correct public asset paths (/assets/generated/filename.png)
-- Add unique titles and descriptions for each portfolio image appropriate to its category
-- Ensure all image references match exact generated filenames
+- Update PortfolioGallery component to use responsive grid layout (1 column mobile, 2-3 tablet, 3-4 desktop)
+- Fix broken image paths to correctly reference /assets/generated/ directory using public asset paths
+- Ensure all 120 portfolio images load correctly across all four categories
 
-**User-visible outcome:** All 120 portfolio images display properly across all four categories (Home, Commercial, Office, Hotels) without any broken image icons.
+**User-visible outcome:** Portfolio images display in a clean, responsive grid layout without broken image icons, adapting smoothly across all device sizes.

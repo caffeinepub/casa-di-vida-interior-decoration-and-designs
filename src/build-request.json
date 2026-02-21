@@ -1,199 +1,61 @@
 {
   "kind": "build_request",
-  "title": "Fix broken portfolio images by generating new images and updating component references",
+  "title": "Fix portfolio gallery image loading and implement grid layout",
   "projectName": "Casa Di Vida",
-  "priority": "high",
+  "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-15",
-      "text": "Fix the PortfolioGallery component to correctly reference portfolio images from the frontend/public/assets/generated directory, ensuring all 120 images (30 per category: Home, Commercial, Office, Hotels) display properly without broken image icons",
+      "id": "REQ-18",
+      "text": "Update the PortfolioGallery component to use a responsive grid layout for displaying portfolio images. The grid should adapt to different screen sizes (e.g., 1 column on mobile, 2-3 columns on tablet, 3-4 columns on desktop) with consistent spacing between images.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-all-portfolio-broken"
+          "msg-latest"
         ],
         "quotes": [
-          "All the portfolio images. Started after the recent update."
+          "Display pictures in portfolio in grid layout"
         ]
       },
       "acceptanceCriteria": [
-        "All portfolio images use correct public asset paths (e.g., /assets/generated/filename.png)",
-        "No broken image icons appear in any portfolio category",
-        "Image paths match the exact generated filenames in frontend/public/assets/generated",
-        "All 120 images (30 Home, 30 Commercial, 30 Office, 30 Hotels) render successfully"
+        "Portfolio images display in a responsive grid layout",
+        "Grid adapts appropriately across mobile, tablet, and desktop viewports",
+        "Images maintain consistent spacing and alignment within the grid",
+        "Grid layout is applied to all four categories (Home, Commercial, Office, Hotels)"
       ]
     },
     {
-      "id": "REQ-16",
-      "text": "Verify that the portfolio image filenames in the PortfolioGallery component match the exact generated filenames using proper public asset paths instead of relative imports",
+      "id": "REQ-19",
+      "text": "Fix the broken image icons in the PortfolioGallery component by correcting the image path references. Ensure all 120 portfolio images (30 per category: home-1.png through home-30.png, commercial-1.png through commercial-30.png, office-1.png through office-30.png, hotels-1.png through hotels-30.png) load correctly from the /assets/generated/ directory using proper public asset paths.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-all-portfolio-broken"
+          "msg-latest"
+        ],
+        "quotes": [
+          "Images in categories of portfolio cannot load, showing broken image icon"
         ]
       },
       "acceptanceCriteria": [
-        "Component uses /assets/generated/ prefix for all image paths",
-        "Filenames follow the pattern: home-1.png through home-30.png, commercial-1.png through commercial-30.png, office-1.png through office-30.png, hotels-1.png through hotels-30.png",
-        "No import statements are used for portfolio images",
-        "All image references are string paths to public assets"
-      ]
-    },
-    {
-      "id": "REQ-17",
-      "text": "Render all 120 generated portfolio images from frontend/public/assets/generated directory in the PortfolioGallery component with proper titles and descriptions for each category",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-user-start-fix"
-        ]
-      },
-      "acceptanceCriteria": [
-        "30 Home category images with residential-appropriate titles and descriptions",
-        "30 Commercial category images with retail/restaurant/showroom titles and descriptions",
-        "30 Office category images with corporate workspace titles and descriptions",
-        "30 Hotels category images with luxury hospitality titles and descriptions",
-        "Each image entry includes a unique, descriptive title",
-        "Each image entry includes a detailed description appropriate to its category theme"
+        "All 120 portfolio images display without broken image icons",
+        "Image paths correctly reference /assets/generated/ directory using public asset paths",
+        "Each category (Home, Commercial, Office, Hotels) displays all 30 of its images successfully",
+        "Images load properly when switching between tabs"
       ]
     }
   ],
   "constraints": [
-    "All portfolio images must be stored in frontend/public/assets/generated directory",
-    "Image paths must use public asset format (/assets/generated/filename.png)",
-    "Do not modify backend code - this is a frontend-only fix",
-    "Maintain existing PortfolioGallery component structure with tabbed categories",
-    "Preserve the dialog-based lightbox interface for viewing images"
+    "Do not modify the immutable frontend paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui",
+    "Maintain the existing dialog-based lightbox interface for viewing full image details",
+    "Preserve the existing tab navigation structure for the four categories"
   ],
   "nonGoals": [
-    "Changing the portfolio gallery layout or tab structure",
-    "Modifying backend contact form functionality",
-    "Updating other sections of the website",
-    "Changing the number of images per category (must remain 30 each)"
+    "Changing the total number of images or adding new categories",
+    "Modifying the backend contact form functionality",
+    "Altering the image generation process or filenames",
+    "Redesigning the lightbox/modal dialog component"
   ],
   "imageRequirements": {
-    "required": [
-      "Luxurious residential living room with modern furniture and warm lighting (home-1.dim_800x600.png)",
-      "Contemporary bedroom with elegant bedding and sophisticated decor (home-2.dim_800x600.png)",
-      "Modern kitchen with high-end appliances and marble countertops (home-3.dim_800x600.png)",
-      "Cozy reading nook with built-in shelving and comfortable seating (home-4.dim_800x600.png)",
-      "Elegant dining room with chandelier and formal table setting (home-5.dim_800x600.png)",
-      "Spa-like bathroom with soaking tub and natural stone finishes (home-6.dim_800x600.png)",
-      "Open-concept living space with floor-to-ceiling windows (home-7.dim_800x600.png)",
-      "Children's bedroom with playful decor and organized storage (home-8.dim_800x600.png)",
-      "Home office with built-in desk and professional lighting (home-9.dim_800x600.png)",
-      "Outdoor living area with comfortable seating and fire pit (home-10.dim_800x600.png)",
-      "Grand foyer entrance with statement chandelier and marble flooring (home-11.dim_800x600.png)",
-      "Minimalist living room with neutral tones and clean lines (home-12.dim_800x600.png)",
-      "Rustic farmhouse kitchen with exposed beams and vintage fixtures (home-13.dim_800x600.png)",
-      "Master suite with sitting area and luxurious textiles (home-14.dim_800x600.png)",
-      "Walk-in closet with custom shelving and island seating (home-15.dim_800x600.png)",
-      "Family room with sectional sofa and entertainment center (home-16.dim_800x600.png)",
-      "Breakfast nook with bay window and built-in seating (home-17.dim_800x600.png)",
-      "Powder room with statement wallpaper and elegant fixtures (home-18.dim_800x600.png)",
-      "Home library with floor-to-ceiling bookshelves (home-19.dim_800x600.png)",
-      "Mudroom with organized storage and seating bench (home-20.dim_800x600.png)",
-      "Sunroom with comfortable furniture and abundant natural light (home-21.dim_800x600.png)",
-      "Wine cellar with temperature control and display racks (home-22.dim_800x600.png)",
-      "Home theater with tiered seating and acoustic panels (home-23.dim_800x600.png)",
-      "Nursery with soft colors and functional storage solutions (home-24.dim_800x600.png)",
-      "Guest bedroom with welcoming decor and ensuite bath (home-25.dim_800x600.png)",
-      "Laundry room with efficient layout and stylish cabinetry (home-26.dim_800x600.png)",
-      "Covered porch with outdoor furniture and ceiling fans (home-27.dim_800x600.png)",
-      "Basement recreation room with pool table and bar area (home-28.dim_800x600.png)",
-      "Attic conversion with dormer windows and cozy seating (home-29.dim_800x600.png)",
-      "Modern loft space with industrial elements and open layout (home-30.dim_800x600.png)",
-      "Upscale boutique retail store with elegant product displays (commercial-1.dim_800x600.png)",
-      "Modern restaurant dining area with sophisticated ambiance (commercial-2.dim_800x600.png)",
-      "Luxury showroom with high-end merchandise and professional lighting (commercial-3.dim_800x600.png)",
-      "Contemporary cafe with comfortable seating and stylish decor (commercial-4.dim_800x600.png)",
-      "Fashion retail space with sleek fixtures and organized displays (commercial-5.dim_800x600.png)",
-      "Fine dining restaurant with intimate lighting and elegant table settings (commercial-6.dim_800x600.png)",
-      "Jewelry store interior with secure display cases and luxurious finishes (commercial-7.dim_800x600.png)",
-      "Modern bakery with display cases and inviting atmosphere (commercial-8.dim_800x600.png)",
-      "Art gallery space with track lighting and white walls (commercial-9.dim_800x600.png)",
-      "Fitness studio with mirrors, equipment, and motivational decor (commercial-10.dim_800x600.png)",
-      "Spa reception area with calming colors and natural materials (commercial-11.dim_800x600.png)",
-      "Wine bar with sophisticated shelving and tasting counter (commercial-12.dim_800x600.png)",
-      "Beauty salon with modern styling stations and elegant mirrors (commercial-13.dim_800x600.png)",
-      "Bookstore with cozy reading nooks and organized shelving (commercial-14.dim_800x600.png)",
-      "Modern pharmacy with clean design and efficient layout (commercial-15.dim_800x600.png)",
-      "Upscale pet store with attractive product displays (commercial-16.dim_800x600.png)",
-      "Organic market with natural wood fixtures and fresh produce displays (commercial-17.dim_800x600.png)",
-      "Technology retail store with interactive product demonstrations (commercial-18.dim_800x600.png)",
-      "Flower shop with refrigerated cases and beautiful arrangements (commercial-19.dim_800x600.png)",
-      "Ice cream parlor with colorful decor and serving counter (commercial-20.dim_800x600.png)",
-      "Home decor store with room vignettes and inspiring displays (commercial-21.dim_800x600.png)",
-      "Music store with instrument displays and soundproof rooms (commercial-22.dim_800x600.png)",
-      "Toy store with engaging displays and playful atmosphere (commercial-23.dim_800x600.png)",
-      "Coffee roastery with industrial elements and tasting bar (commercial-24.dim_800x600.png)",
-      "Chocolate shop with elegant display cases and tasting area (commercial-25.dim_800x600.png)",
-      "Sporting goods store with equipment displays and fitting areas (commercial-26.dim_800x600.png)",
-      "Specialty cheese shop with refrigerated displays and tasting counter (commercial-27.dim_800x600.png)",
-      "Modern barbershop with vintage-inspired chairs and grooming stations (commercial-28.dim_800x600.png)",
-      "Craft brewery taproom with bar seating and industrial design (commercial-29.dim_800x600.png)",
-      "Luxury car showroom with polished floors and dramatic lighting (commercial-30.dim_800x600.png)",
-      "Executive office with mahogany desk and leather furnishings (office-1.dim_800x600.png)",
-      "Modern open-plan workspace with collaborative areas (office-2.dim_800x600.png)",
-      "Conference room with large table and video conferencing setup (office-3.dim_800x600.png)",
-      "Reception area with comfortable seating and company branding (office-4.dim_800x600.png)",
-      "Private office with built-in shelving and professional decor (office-5.dim_800x600.png)",
-      "Break room with kitchenette and casual seating areas (office-6.dim_800x600.png)",
-      "Creative studio workspace with flexible furniture arrangements (office-7.dim_800x600.png)",
-      "Boardroom with executive seating and presentation technology (office-8.dim_800x600.png)",
-      "Cubicle workspace with ergonomic furniture and privacy panels (office-9.dim_800x600.png)",
-      "Standing desk area with adjustable workstations (office-10.dim_800x600.png)",
-      "Video production office with equipment storage and editing stations (office-11.dim_800x600.png)",
-      "Legal office library with law books and research tables (office-12.dim_800x600.png)",
-      "Tech startup office with casual seating and whiteboards (office-13.dim_800x600.png)",
-      "Medical office waiting room with comfortable seating (office-14.dim_800x600.png)",
-      "Architect studio with drafting tables and model displays (office-15.dim_800x600.png)",
-      "Accounting firm office with organized filing systems (office-16.dim_800x600.png)",
-      "Marketing agency workspace with creative inspiration boards (office-17.dim_800x600.png)",
-      "Call center with efficient workstation layout (office-18.dim_800x600.png)",
-      "Executive lounge with premium furniture and bar area (office-19.dim_800x600.png)",
-      "Training room with presentation screen and flexible seating (office-20.dim_800x600.png)",
-      "IT server room with organized cable management (office-21.dim_800x600.png)",
-      "Private phone booth for confidential calls (office-22.dim_800x600.png)",
-      "Wellness room with meditation space and comfortable seating (office-23.dim_800x600.png)",
-      "Mail room with sorting stations and package storage (office-24.dim_800x600.png)",
-      "Storage room with organized shelving systems (office-25.dim_800x600.png)",
-      "Printing area with copiers and document organization (office-26.dim_800x600.png)",
-      "Mother's room with comfortable furniture and privacy (office-27.dim_800x600.png)",
-      "Collaboration pods with small group seating (office-28.dim_800x600.png)",
-      "Supply closet with organized inventory systems (office-29.dim_800x600.png)",
-      "Corner office with panoramic windows and executive furnishings (office-30.dim_800x600.png)",
-      "Grand hotel lobby with high ceilings and luxurious seating (hotels-1.dim_800x600.png)",
-      "Deluxe hotel guest room with king bed and elegant furnishings (hotels-2.dim_800x600.png)",
-      "Presidential suite living area with premium decor (hotels-3.dim_800x600.png)",
-      "Hotel restaurant with fine dining atmosphere (hotels-4.dim_800x600.png)",
-      "Rooftop bar with city views and sophisticated seating (hotels-5.dim_800x600.png)",
-      "Spa treatment room with calming ambiance (hotels-6.dim_800x600.png)",
-      "Hotel conference center with modern technology (hotels-7.dim_800x600.png)",
-      "Boutique hotel room with unique character and style (hotels-8.dim_800x600.png)",
-      "Hotel pool area with luxury loungers and cabanas (hotels-9.dim_800x600.png)",
-      "Concierge desk with professional service area (hotels-10.dim_800x600.png)",
-      "Bridal suite with romantic decor and luxurious amenities (hotels-11.dim_800x600.png)",
-      "Hotel gym with state-of-the-art equipment (hotels-12.dim_800x600.png)",
-      "Breakfast buffet area with abundant seating (hotels-13.dim_800x600.png)",
-      "Hotel library lounge with comfortable reading areas (hotels-14.dim_800x600.png)",
-      "Penthouse suite with panoramic views and premium furnishings (hotels-15.dim_800x600.png)",
-      "Hotel bar with sophisticated cocktail lounge atmosphere (hotels-16.dim_800x600.png)",
-      "Ballroom with elegant chandeliers and event setup (hotels-17.dim_800x600.png)",
-      "Junior suite with separate sitting area (hotels-18.dim_800x600.png)",
-      "Hotel corridor with stylish lighting and artwork (hotels-19.dim_800x600.png)",
-      "Business center with workstations and printing facilities (hotels-20.dim_800x600.png)",
-      "VIP lounge with exclusive seating and refreshments (hotels-21.dim_800x600.png)",
-      "Hotel suite bedroom with luxury linens and bedding (hotels-22.dim_800x600.png)",
-      "Garden terrace with outdoor seating and greenery (hotels-23.dim_800x600.png)",
-      "Hotel bathroom with soaking tub and marble finishes (hotels-24.dim_800x600.png)",
-      "Meeting room with boardroom table and AV equipment (hotels-25.dim_800x600.png)",
-      "Hotel coffee shop with casual seating and barista bar (hotels-26.dim_800x600.png)",
-      "Outdoor dining patio with ambient lighting (hotels-27.dim_800x600.png)",
-      "Hotel gift shop with curated merchandise displays (hotels-28.dim_800x600.png)",
-      "Sauna and steam room with relaxation area (hotels-29.dim_800x600.png)",
-      "Hotel entrance with valet service and impressive facade (hotels-30.dim_800x600.png)"
-    ],
+    "required": [],
     "edits": []
   }
 }
