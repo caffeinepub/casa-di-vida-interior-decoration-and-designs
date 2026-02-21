@@ -16,13 +16,13 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-12"
+        "REQ-15"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-verify-that-the-portfolio-image-filenames-in-the-component-match-the-exact-generated-filenames-in-frontend-public-assets-generated-using-proper-public-asset-paths-e-g-assets-generated-filename-png-instead-of-relative-imports",
-      "featureTitle": "Verify that the portfolio image filenames in the component match the exact generated filenames in frontend/public/assets/generated, using proper public asset paths (e.g., /assets/generated/filename.png) instead of relative imports",
+      "featureId": "feature-verify-that-the-portfolio-image-filenames-in-the-portfoliogallery-component-match-the-exact-generated-filenames-using-proper-public-asset-paths-instead-of-relative-imports",
+      "featureTitle": "Verify that the portfolio image filenames in the PortfolioGallery component match the exact generated filenames using proper public asset paths instead of relative imports",
       "files": [
         "frontend/src/components/PortfolioGallery.tsx"
       ],
@@ -35,7 +35,26 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-13"
+        "REQ-16"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-render-all-120-generated-portfolio-images-from-frontend-public-assets-generated-directory-in-the-portfoliogallery-component-with-proper-titles-and-descriptions-for-each-category",
+      "featureTitle": "Render all 120 generated portfolio images from frontend/public/assets/generated directory in the PortfolioGallery component with proper titles and descriptions for each category",
+      "files": [
+        "frontend/src/components/PortfolioGallery.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-17"
       ],
       "confidence": "high"
     }
